@@ -24,27 +24,27 @@ async def home():
 
 @app.post("/skill/hello")
 async def skill(req: ChatbotRequest):
-    response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
-        messages=[
-            {"role": "system", "content": SYSTEM_MSG},
-            {"role": "user", "content": req.message},
-        ],
-        temperature=req.temperature,
-    )
-    output_text = response.choices[0].message.content
-    simple_text_sample2 = {
-        "version": "2.0",
-        "template": {
-            "outputs": [
-                {
-                    "simpleText": {
-                        "text": output_text
-                    }
-                }
-            ]
-        }
-    }
+    # response = openai.ChatCompletion.create(
+    #     model="gpt-3.5-turbo",
+    #     messages=[
+    #         {"role": "system", "content": SYSTEM_MSG},
+    #         {"role": "user", "content": req.message},
+    #     ],
+    #     temperature=req.temperature,
+    # )
+    # output_text = response.choices[0].message.content
+    # simple_text_sample2 = {
+    #     "version": "2.0",
+    #     "template": {
+    #         "outputs": [
+    #             {
+    #                 "simpleText": {
+    #                     "text": output_text
+    #                 }
+    #             }
+    #         ]
+    #     }
+    # }
     return simple_text_sample
 
 @app.post("/skill/basic-card")
