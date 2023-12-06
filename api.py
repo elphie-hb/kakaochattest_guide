@@ -16,7 +16,7 @@ async def home():
     page = """
     <html>
         <body>
-            <h2>카카오 챗봇빌더 스킬 예제입니다 ^^11</h2>
+            <h2>카카오 챗봇빌더 스킬 예제입니다 ^^12</h2>
         </body>
     </html>
     """
@@ -45,7 +45,7 @@ def skill(req: ChatbotRequest):
             ]
         }
     }
-    return simple_text_sample
+    return simple_text_sample2
 
 @app.post("/skill/basic-card")
 async def skill(req: ChatbotRequest):
