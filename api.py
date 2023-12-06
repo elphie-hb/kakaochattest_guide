@@ -16,7 +16,7 @@ async def home():
     page = """
     <html>
         <body>
-            <h2>카카오 챗봇빌더 스킬 예제입니다 ^^12</h2>
+            <h2>카카오 챗봇빌더 스킬 예제입니다 ^^13</h2>
         </body>
     </html>
     """
@@ -28,7 +28,7 @@ def skill(req: ChatbotRequest):
         model="gpt-3.5-turbo",
         messages=[
             {"role": "system", "content": SYSTEM_MSG},
-            {"role": "user", "content": 'hello'},
+            {"role": "user", "content": req.userRequest.utterance},
         ],
         temperature=0,
     )
