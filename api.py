@@ -16,14 +16,14 @@ async def home():
     page = """
     <html>
         <body>
-            <h2>카카오 챗봇빌더 스킬 예제입니다 ^^4</h2>
+            <h2>카카오 챗봇빌더 스킬 예제입니다 ^^7</h2>
         </body>
     </html>
     """
     return HTMLResponse(content=page, status_code=200)
 
 @app.post("/skill/hello")
-async def skill(req: ChatbotRequest):
+def skill(req: ChatbotRequest):
     # response = openai.ChatCompletion.create(
     #     model="gpt-3.5-turbo",
     #     messages=[
