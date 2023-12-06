@@ -5,6 +5,7 @@ from fastapi.responses import HTMLResponse
 from dto import ChatbotRequest
 from samples import simple_text_sample, basic_card_sample, commerce_card_sample
 from callback import callback_handler
+import openai
 
 app = FastAPI()
 
@@ -21,6 +22,14 @@ async def home():
 
 @app.post("/skill/hello")
 async def skill(req: ChatbotRequest):
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "system", "content": SYSTEM_MSG},
+            {"role": "user", "content": req.message},
+        ],
+        temperature=req.temperature,
+    )
     return simple_text_sample
 
 @app.post("/skill/basic-card")
