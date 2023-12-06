@@ -16,7 +16,7 @@ async def home():
     page = """
     <html>
         <body>
-            <h2>카카오 챗봇빌더 스킬 예제입니다 ^^7</h2>
+            <h2>카카오 챗봇빌더 스킬 예제입니다 ^^8</h2>
         </body>
     </html>
     """
@@ -24,14 +24,14 @@ async def home():
 
 @app.post("/skill/hello")
 def skill(req: ChatbotRequest):
-    # response = openai.ChatCompletion.create(
-    #     model="gpt-3.5-turbo",
-    #     messages=[
-    #         {"role": "system", "content": SYSTEM_MSG},
-    #         {"role": "user", "content": req.message},
-    #     ],
-    #     temperature=req.temperature,
-    # )
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "system", "content": SYSTEM_MSG},
+            {"role": "user", "content": req.message},
+        ],
+        temperature=req.temperature,
+    )
     # output_text = response.choices[0].message.content
     # simple_text_sample2 = {
     #     "version": "2.0",
