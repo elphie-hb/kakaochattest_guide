@@ -8,7 +8,7 @@ from callback import callback_handler
 import openai
 
 openai.api_key = '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'
-
+SYSTEM_MSG = "당신은 카카오 서비스 제공자입니다."
 app = FastAPI()
 
 @app.get("/")
@@ -16,7 +16,7 @@ async def home():
     page = """
     <html>
         <body>
-            <h2>카카오 챗봇빌더 스킬 예제입니다 ^^8</h2>
+            <h2>카카오 챗봇빌더 스킬 예제입니다 ^^9</h2>
         </body>
     </html>
     """
