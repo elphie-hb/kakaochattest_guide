@@ -7,6 +7,8 @@ from samples import simple_text_sample, basic_card_sample, commerce_card_sample
 from callback import callback_handler
 import openai
 
+openai.api_key = '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'
+
 app = FastAPI()
 
 @app.get("/")
@@ -14,7 +16,7 @@ async def home():
     page = """
     <html>
         <body>
-            <h2>카카오 챗봇빌더 스킬 예제입니다 ^^2</h2>
+            <h2>카카오 챗봇빌더 스킬 예제입니다 ^^3</h2>
         </body>
     </html>
     """
