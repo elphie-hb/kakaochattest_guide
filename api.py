@@ -16,7 +16,7 @@ async def home():
     page = """
     <html>
         <body>
-            <h2>카카오 챗봇빌더 스킬 예제입니다 ^^15</h2>
+            <h2>카카오 챗봇빌더 스킬 예제입니다 ^^16</h2>
         </body>
     </html>
     """
@@ -35,7 +35,6 @@ def skill(req: ChatbotRequest):
     output_text = response.choices[0].message.content
     simple_text_sample2 = {
         "version": "2.0",
-        "useCallback" : true,
         "template": {
             "outputs": [
                 {
