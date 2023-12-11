@@ -7,8 +7,6 @@ from samples import simple_text_sample, basic_card_sample, commerce_card_sample
 from callback import callback_handler
 import openai
 
-openai.api_key = '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'
-SYSTEM_MSG = "당신은 카카오 서비스 제공자입니다."
 app = FastAPI()
 
 @app.get("/")
@@ -16,7 +14,7 @@ async def home():
     page = """
     <html>
         <body>
-            <h2>카카오 챗봇빌더 스킬 예제입니다 ^^16</h2>
+            <h2>카카오 챗봇빌더 스킬 예제입니다 :)</h2>
         </body>
     </html>
     """
@@ -24,28 +22,7 @@ async def home():
 
 @app.post("/skill/hello")
 def skill(req: ChatbotRequest):
-    response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
-        messages=[
-            {"role": "system", "content": SYSTEM_MSG},
-            {"role": "user", "content": req.userRequest.utterance},
-        ],
-        temperature=0,
-    )
-    output_text = response.choices[0].message.content
-    simple_text_sample2 = {
-        "version": "2.0",
-        "template": {
-            "outputs": [
-                {
-                    "simpleText": {
-                        "text": output_text
-                    }
-                }
-            ]
-        }
-    }
-    return simple_text_sample2
+    return simple_text_sample
 
 @app.post("/skill/basic-card")
 async def skill(req: ChatbotRequest):
@@ -55,8 +32,10 @@ async def skill(req: ChatbotRequest):
 async def skill(req: ChatbotRequest):
     return commerce_card_sample
 
+# callback.py 로 연결
 @app.post("/callback")
 async def skill(req: ChatbotRequest, background_tasks: BackgroundTasks):
+    #핸들러 호출 / background_tasks 변경가능
     background_tasks.add_task(callback_handler, req)
     out = {
         "version" : "2.0",
