@@ -65,22 +65,11 @@ async def skill(req: ChatbotRequest):
 (1)에서 요청에 포함된 ```userRequest.callbackUrl```로 HTTP POST 요청을 보냅니다.
 
 
-# 배포하기 
-
-[![Vercel로 배포하기](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/mariojisoohwang/kakao-chatbot-skill-example)
-
-위의 버튼을 누르면 이 소스 코드를 기반으로 빌드, 배포가 진행됩니다.
-대략적인 과정은 다음과 같습니다.
-* 나의 github repository에 이 예제 코드가 clone 됨 
-* 복제된 repository기반으로 Docker image를 빌드
-* vercel cloud 서비스에 배포 
-
 # 스킬서버 설정하기
+ifconfig를 통해 확인한 개별 ip를 엔드포인트로 설정합니다.
+보안 문제가 있으니 챗봇 url을 외부에 공유하지 마세요.
+교육 종료 후 계속 사용을 원하신다면 해당 코드를 private한 타 서버에 배포 후 스킬 연결 부탁드립니다.
 
-## Vercel에 배포된 domain 확인하기
-<img width="1236" alt="image" src="https://github.com/mariojisoohwang/kakao-chatbot-skill-example/assets/970595/14a42ef3-9255-442b-8c53-4bea6103d8bb">
-
-Domains에 있는 ```test5-jet.vercel.app```이 배포된 도메인입니다.
 
 ## 스킬 만들기
 예제에는 4개의 endpoint가 만들어져 있습니다.  이것은 각각 다음과 같이 Full URL로 바꿀 수 있습니다.
@@ -100,3 +89,6 @@ Domains에 있는 ```test5-jet.vercel.app```이 배포된 도메인입니다.
 
 <img width="759" alt="image" src="https://github.com/mariojisoohwang/kakao-chatbot-skill-example/assets/970595/9c8fbdab-aa01-400f-bcf5-35d44723f79c">
 
+
+## 콜백
+callback.py 참고
