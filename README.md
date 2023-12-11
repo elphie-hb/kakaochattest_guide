@@ -32,6 +32,8 @@ async def skill(req: ChatbotRequest):
 
 
 
+
+
 ## 콜백
 일반적인 스킬은 타임아웃이 5초로 설정되어 있습니다. 5초 이상의 처리 시간이 필요한 경우에는 콜백을 이용하여 구현할 수 있습니다.  아래는 콜백이 동작하는 방식입니다.  스킬 요청을 받아서 (1) 콜백 활성화 (2) 응답 메시지 전송, 이렇게 두 단계로 사용자에게 응답을 보낼 수 있습니다.
 
@@ -71,16 +73,17 @@ ifconfig를 통해 확인한 개별 ip를 엔드포인트로 설정합니다.
 교육 종료 후 계속 사용을 원하신다면 해당 코드를 private한 타 서버에 배포 후 스킬 연결 부탁드립니다.
 
 
+
+
 ## 스킬 만들기
 예제에는 4개의 endpoint가 만들어져 있습니다.  이것은 각각 다음과 같이 Full URL로 바꿀 수 있습니다.
 ```
-/skill/hello  -->  https://test5-jet.vercel.app/skill/hello
-/skill/basic-card --> https://test5-jet.vercel.app/skill/basic-card
-/skill/commerce-card --> https://test5-jet.vercel.app/skill/commerce-card
-/callback --> https://test5-jet.vercel.app/callback
+/skill/hello  -->  https://{ip:port}/skill/hello
+/skill/basic-card --> https://{ip:port}/skill/basic-card
+/skill/commerce-card --> https://{ip:port}/skill/commerce-card
+/callback --> https://{ip:port}/callback
 
 ```
-<img width="974" alt="image" src="https://github.com/mariojisoohwang/kakao-chatbot-skill-example/assets/970595/ff0439ee-2e19-483f-be8d-5698fee09211">
 
 ## 블록에 스킬 서버 연결하기 
 1. 위에서 만든 ```My Skill```을 선택합니다.
@@ -92,3 +95,4 @@ ifconfig를 통해 확인한 개별 ip를 엔드포인트로 설정합니다.
 
 ## 콜백
 callback.py 참고
+
