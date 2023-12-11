@@ -1,5 +1,5 @@
-# Kakao Chatbot Skill Example
-[카카오 챗봇빌더](https://chatbot.kakao.com/)에 연결할 스킬 서버를 쉽게 개발할 수 있도록 참고할 수 있는 예제입니다.
+# Kakao Chatbot Skill Example (생성 AI의 이해와 LLM 적용 및 실습 - 2)
+[카카오 챗봇빌더](https://chatbot.kakao.com/)에 연결할 스킬 서버를 쉽게 개발할 수 있도록 참고할 수 있는 예제입니다. by mario.h
 
 ## Skill
 아래는 간단한 스킬서버 예제입니다. 카카오 챗봇빌더 서버의 [HTTP POST 요청](https://chatbot.kakao.com/docs/skill-response-format#skillpayload)을 받아서, 원하는 [응답](https://chatbot.kakao.com/docs/skill-response-format#skillresponse)을 만들 수 있습니다.
@@ -35,7 +35,10 @@ async def skill(req: ChatbotRequest):
 
 
 ## 콜백
-일반적인 스킬은 타임아웃이 5초로 설정되어 있습니다. 5초 이상의 처리 시간이 필요한 경우에는 콜백을 이용하여 구현할 수 있습니다.  아래는 콜백이 동작하는 방식입니다.  스킬 요청을 받아서 (1) 콜백 활성화 (2) 응답 메시지 전송, 이렇게 두 단계로 사용자에게 응답을 보낼 수 있습니다.
+일반적인 스킬은 타임아웃이 5초로 설정되어 있습니다.  
+5초 이상의 처리 시간이 필요한 경우에는 콜백을 이용하여 구현할 수 있습니다.   
+아래는 콜백이 동작하는 방식입니다.   
+스킬 요청을 받아서 (1) 콜백 활성화 (2) 응답 메시지 전송, 이렇게 두 단계로 사용자에게 응답을 보낼 수 있습니다.
 
 ```
      ┌─────┐          ┌────────────┐     
@@ -68,20 +71,21 @@ async def skill(req: ChatbotRequest):
 
 
 # 스킬서버 설정하기
-ifconfig를 통해 확인한 개별 ip를 엔드포인트로 설정합니다.
-보안 문제가 있으니 챗봇 url을 외부에 공유하지 마세요.
-교육 종료 후 계속 사용을 원하신다면 해당 코드를 private한 타 서버에 배포 후 스킬 연결 부탁드립니다.
+ifconfig를 통해 확인한 개별 ip를 서버 주소로 설정합니다.    
+교육 종료 후 계속 사용을 원하신다면 해당 코드를 private한 타 서버에 배포 후 스킬 연결 부탁드립니다.  
+(현재 개인 ip를 통한 스킬 서버 등록은 사내망에서만 가능합니다.)
 
 
 
 
 ## 스킬 만들기
-예제에는 4개의 endpoint가 만들어져 있습니다.  이것은 각각 다음과 같이 Full URL로 바꿀 수 있습니다.
+예제에는 4개의 endpoint가 만들어져 있습니다.  
+이것은 각각 다음과 같이 Full URL로 바꿀 수 있습니다.
 ```
 /skill/hello  -->  https://{ip:port}/skill/hello
 /skill/basic-card --> https://{ip:port}/skill/basic-card
 /skill/commerce-card --> https://{ip:port}/skill/commerce-card
-/callback --> https://{ip:port}/callback
+/callback --> https://{ip:port}/callback <<<<<<<<< 활용!
 
 ```
 
