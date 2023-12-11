@@ -7,7 +7,7 @@ from samples import simple_text_sample, basic_card_sample, commerce_card_sample
 from callback import callback_handler
 import openai
 
-openai.api_key = ''
+openai.api_key = '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'
 SYSTEM_MSG = "당신은 카카오 서비스 제공자입니다."
 app = FastAPI()
 
